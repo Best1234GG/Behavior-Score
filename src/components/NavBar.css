@@ -1,0 +1,106 @@
+/* src/components/NavBar.css */
+.navbar {
+  background-color: #333; /* Darker background color */
+  padding: 1rem 0; /* Top and bottom padding */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  position: fixed; /* Fixed position at the top */
+  width: 100vw; /* Full viewport width */
+  top: 0; /* Stick to the top */
+  left: 0; /* Start from the left edge */
+  z-index: 1000; /* Ensure it stays on top */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Maximum width for the inner container */
+  width: 100%; /* Full width for the inner container */
+  margin: 0 auto; /* Center the inner container */
+  padding: 0 2rem; /* Add some padding to keep the navbar away from the container */
+}
+
+.logo {
+  color: #ffffff; /* White logo color */
+  font-size: 1.8rem; /* Logo font size */
+  font-weight: bold; /* Bold font weight */
+  letter-spacing: 1px; /* Slightly spaced letters */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Subtle text shadow */
+}
+
+.nav-links {
+  list-style: none; /* Remove list styling */
+  display: flex; /* Flexbox for links */
+  margin: 0; /* Reset margin */
+}
+
+.nav-links li {
+  margin: 0 1.5rem; /* Increased margin for better spacing */
+}
+
+.nav-links a {
+  color: #ffffff; /* White link color */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Font size for links */
+  padding: 0.5rem 0; /* Vertical padding for touch area */
+  transition: color 0.3s, transform 0.3s; /* Transition for hover */
+  position: relative; /* Enable pseudo-element for hover effect */
+}
+
+.nav-links a::after {
+  content: ""; /* Create an underline effect */
+  display: block;
+  height: 2px; /* Underline height */
+  background: #ff6600; /* Underline color */
+  width: 0; /* Start width */
+  transition: width 0.3s; /* Transition for underline effect */
+  position: absolute;
+  bottom: -5px; /* Position below text */
+  left: 0; /* Align underline to the left */
+}
+
+.nav-links a:hover {
+  color: #ff6600; /* Change color on hover */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Full underline width on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+      flex-direction: column; /* Stack links vertically */
+      display: none; /* Hide links by default */
+      width: 100%; /* Full width */
+      position: absolute; /* Positioning */
+      background-color: #1a1a1a; /* Background color for dropdown */
+      top: 60px; /* Position below navbar */
+      left: 0; /* Align to the left */
+      padding: 1rem; /* Padding */
+      z-index: 1; /* Ensure it appears above other elements */
+  }
+
+  .nav-links.active {
+      display: flex; /* Show links when active */
+  }
+
+  .menu-toggle {
+      display: block; /* Show toggle button on small screens */
+      cursor: pointer; /* Pointer on hover */
+      font-size: 1.8rem; /* Toggle button font size */
+      color: #ffffff; /* Toggle button color */
+  }
+}
+
+.menu-toggle {
+  display: none; /* Hide toggle button on large screens */
+  color: #ffffff; /* Toggle button color */
+  font-size: 1.5rem; /* Toggle button font size */
+}
+
+
